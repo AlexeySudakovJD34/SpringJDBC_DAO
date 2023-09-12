@@ -14,10 +14,10 @@ import static com.example.springjdbcdao.utils.SqlUtils.read;
 public class MyOrderDAO implements OrderDAO {
 
     private final NamedParameterJdbcTemplate template;
+    private final String sqlScript = read("select_product.sql");
 
     @Override
     public List<String> getProductNameByCustomerName(String name) {
-        String sqlScript = read("select_product.sql");
 
         MapSqlParameterSource param = new MapSqlParameterSource("name", name);
 
